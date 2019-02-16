@@ -1,0 +1,19 @@
+book book4
+
+chapter c1 {
+	cref c1;//c1; // c1 c11
+	qnref book1.c1;
+	
+	chapter c11 {
+		cref c1; // c1 c2 c11 c111
+		
+		chapter c111 {
+		}
+		p112
+	}
+	p12
+}
+
+chapter c2 {
+	chapter c21 {}
+}

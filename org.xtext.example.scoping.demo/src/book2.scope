@@ -1,0 +1,33 @@
+book book2
+
+import book1.*
+
+chapter d1 {
+	cref d1; // c1 c2 d1 d2 d11 d12
+	qnref c1.c11.c111.c1111; // ALL THE CHAPTERS IN ALL THE BOOKS
+	pref q13; // p13
+	
+	chapter d11 {
+		cref d1; // c1 c2 d1 d2 d11 d12
+		pref q111; // q13 q111
+		
+		q111
+	}
+	chapter d12 {
+		chapter d121 {}
+	}
+	q13
+}
+
+chapter d2 {
+	cref d1; // c1 c2 d1 d2 d21
+	
+	chapter d21 {
+		cref d1; // c1 c2 d1 d2 d21 d221
+		
+		chapter d211 {
+			cref d1; // c1 c2 d1 d2 d21 d221
+			
+		}
+	}
+}

@@ -1,0 +1,63 @@
+book book1
+
+chapter c1 {
+	cref c1; // c1 c2 c11 c12
+	qnref book2.d1.d12.d121; // ALL THE CHAPTERS IN ALL THE BOOKS
+	pref p13; // p13
+	
+	chapter c11 {
+		cref c1; // c1 c2 c11 c12 c111 c112
+		pref p13; // p12 p113
+		
+		chapter c111 {
+			cref c1; // c1 c2 c11 c12 c111 c112 c1111 c1112
+			pref p13; // p12 p113 p1113
+			
+			chapter c1111 {
+				cref c1; // c1 c2 c11 c12 c111 c112 c1111 c1112;
+				pref p1111b; // p12 p113 p1113 p1111a p1111b
+				p1111a
+				p1111b
+			}
+			chapter c1112 {
+				p1112a
+				p1112b
+			}
+			p1113
+		}
+		chapter c112 {
+		}
+		p113
+	}
+	chapter c12 {
+		chapter c121 {
+			chapter c1211 {
+				p1211a
+				p1211b
+			}
+			chapter c1112 {
+				p1212a
+				p1212b
+			}
+		}
+	}
+	p13
+}
+
+chapter c2 {
+	cref c1; // c1 c2 c21 c22
+	
+	chapter c21 {
+		cref c1; // c1 c2 c21 c22 c211
+		
+		chapter c211 {
+			cref c1; // c1 c2 c21 c22 c211
+			
+		}
+	}
+	chapter c22 {
+		chapter c221 {
+			
+		}
+	}
+}

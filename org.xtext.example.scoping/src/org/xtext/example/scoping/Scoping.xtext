@@ -1,0 +1,28 @@
+grammar org.xtext.example.scoping.Scoping with org.eclipse.xtext.common.Terminals
+
+generate scoping "http://www.xtext.org/example/scoping/Scoping"
+
+Book:
+	'book'
+	name=QualifiedName
+	(imports+=DImport)*
+	(chapters+=Chapter)*;
+
+DImport:
+	'import' importedNamespace=QualifiedNameWithWildcard;
+
+QualifiedNameWithWildcard: 
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+	
+Chapter:
+	'chapter' name=ID '{' (chapter+=Chapter | paragraphs+=Paragraph | references+=Reference)*	'}';
+	
+Paragraph:
+	name=ID;
+	
+Reference:
+	('cref' cref=[Chapter|ID]  | 'qnref' qnref=[Chapter|QualifiedName]  | 'pref' pref=[Paragraph|ID])
+	';' ;	
